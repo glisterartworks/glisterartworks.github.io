@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>/*blog*/
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: white;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 20px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+  
+  
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 33%;
+}
+
+.centercolumn {   
+  float: left;
+  width: 33%;
+}
+.title {   
+  float: left;
+  width: 100%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+.titlebg {
+  background-color: #ffcc00;
+  width: 100%;
+  padding: 20px;
+}
+
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn, .centercolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+
+<style>/*home icon*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: white; 
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: red;
+}
+
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  width: 100%;
+  z-index: 1;
+}
+
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+.dropbtn {
+  background-color: red;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: red;}
+
+</style>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+ 
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #ffff4d;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+/* Modal Content contact */
+.modal-contact {
+  position: relative;
+  background-color: #99ff33;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  
+  -webkit-animation-name: animatezoom;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-name: animatezoom;
+  -webkit-animation-duration: 0.6s;
+  
+  
+  
+}
+
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+@keyframes opac{from{opacity:0} to{opacity:1}}
+@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #ccccb3;
+  color: black;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #ccccb3;
+  color: black;
+}
+</style>
+<style>/*follow mw*/
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+.instagram {
+  background:#E4405F;
+  color: white;
+}
+.shoping{
+  background:red;
+  color: white;
+}
+.share {
+  background: green;
+  color: white;
+}
+
+</style>
+
+<style>/*Gallery*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+
+
+
+</head>
+<body>
+
+
+  
+		
+<div class="navbar">
+ 
+		<a href="home.html"><b>Home</b></a>
+			<div class="subnav">
+				<button class="subnavbtn"><b>Fine Art </b><i class="fa fa-caret-down"></i> </button>
+					<div class="subnav-content">
+     
+						<div class="dropdown">
+				<button class="dropbtn">Gallery</button>
+							<div class="dropdown-content">
+								<a href="pencilpotrait.html" target="_blank"><b>>></b>Pencil Potrait</a>
+								<a href="oilpainting.html" target="_blank"><b>>></b>Oil Painting</a>
+							<a href="watercolored.html" target="_blank"><b>>></b>Watercolored Painting</a>
+							</div>
+						</div>
+					</div>
+			</div>
+  
+  <div class="subnav">
+		<button class="subnavbtn"><b>Services </b><i class="fa fa-caret-down"></i></button>
+			<div class="subnav-content">
+				<a href="https://www.indiamart.com/glister-art-works/#aboutus/"target="_blank"">Products</a>
+				<a href="target">Custom Art</a>
+				<a href="#package">Learn Art</a>
+      
+			</div>
+  </div> 
+  
+													<!-- Trigger/Open The Modal -->
+<a id="myBtn" style="border:none"><b>Artist</b></a>
+ 
+
+															<!-- The Modal -->
+<div id="myModal" class="modal">
+
+															<!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Dhanashree Kanagaraj</h2>
+    </div>
+		<div class="modal-body">
+			<p style="font-family:Cursive; font-size:100%;text-align:center;color:black;">
+			<b> Dhanashree considers her painting an integral part of her own identify as she 
+				scribbles away even in her spare time just as she did right from when she put 
+				pencil on paper
+				Dhana shree not only sketched meticulously but even looks at people differently .
+				To her, each mark and wrinkle is not an imperfection but another detail that gives
+				life to the portrait. If only every man, women and club could look at the world 
+				from Dhanashree's eyes , the world would surly be more beautiful</b>
+			</p>
+		</div>
+			<div class="modal-footer">
+				<h3>
+					Artist                             : Artglist<br>
+					Profession  : Student<br>
+					College     : PSGR Krishnammal College For women
+				</h3>
+			</div>
+  </div>
+
+</div>
+
+		<a href="#home"><b>Help</b></a>
+
+			<a id="myctn"><b>Contact us</b></a>
+
+															<!-- The Modal -->
+<div id="ctnModal" class="modal">
+
+														<!-- Modal content -->
+  <div class="modal-contact">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Dhanashree Kanagaraj</h2>
+    </div>
+			<div class="modal-body">
+				<p style="font-family:Comic Sans MS; font-size:100%;text-align:center;color:black;">
+	  
+				<address>Door No. 5/59 A,<br> Rattanathan Thottam,<br> Near K I T College,<br> Kannampalayam, <br>
+				Coimbatore-641402, <br>Tamil Nadu-India</address>
+	
+				</p>
+			</div>
+					<div class="modal-footer">
+						<h3>
+							<a> <i class="fa fa-vcard"> Ph:9944882332</i></a>
+							<br>
+							<a> <i class="fa fa-envelope-square">Email:dhanukrish6666@gmail.com</i></a><br>
+							<br>
+						</h3>
+					</div>
+  </div>
+
+</div>				
+				
+  <div class="right">
+<a href="whatsapp://send?text=Welcome to the page" class="fa fa-share-alt"  style="font-size: 30px;text-align:right;background-color:white;color:red; padding: 15px;"></a> 
+</div>
+<div class="row">
+	<div class="title">
+		<div class="card">
+			<div class="titlebg" style="height:100px;"><h1 style="font-family:cursive; text-align:center;" ><i>
+			<b>Glister-Art-Works</b><i></h1>
+			</div>
+		</div>
+	</div>
+
+
+
+			<div class="leftcolumn">
+				<div class="card">
+					<h2>Oil Painting</h2>
+					<br>
+							<div class="fakeimg" style="height:620px;">
+
+								<div class="w3-content w3-section" >
+									<img class="mySlides w3-animate-left" src="IMG_20190517_180346.jpg" style="width:100%">
+									<img class="mySlides w3-animate-fading" src="IMG_20190517_180346.jpg" style="width:100%">
+									<img class="mySlides w3-animate-zoom" src="IMG_20190517_180346.jpg" style="width:100%">
+									<img class="mySlides w3-animate-right" src="IMG_20190517_180346.jpg" style="width:100%">
+								</div>
+
+							</div>
+								
+									<p><mark>"There is nothing quite like the smell of oil paint and medium, or creating a vision of reality with the deft stroke of a brush!!Unlike usual oil paint practice, 
+									the first stroke of my brush adds the lightest light, and from there I work backwards to the darkest dark"</mark></p>
+									</div>
+			</div>
+  
+								<div class="leftcolumn">
+									<div class="card">
+										<h2>Pencil Potrait</h2>
+										<br>
+											<div class="fakeimg" style="height:620px;">
+											
+											
+											<div class="w3-content w3-section" style="max-width:500px">
+  
+  <img class="mySlides1 w3-animate-fading" src="IMG_20190331_141052_691.jpg" style="width:100%">
+  <img class="mySlides1 w3-animate-fading" src="IMG_20190409_202827_901.jpg" style="width:100%">
+  <img class="mySlides1 w3-animate-fading" src="IMG_20190423_162850.jpg" style="width:100%">
+  <img class="mySlides1 w3-animate-fading" src="IMG_20190103_061328.jpg" style="width:100%">
+</div>
+											
+											
+											
+											</div>
+												
+												<p><mark>"Life is like a painting. Imagine it, hit and try drawing with the pencil of first steps, fill in the colors of happiness, 
+															correct the mistakes with eraser of love
+															and forgiveness; thus, one dream project is accomplished. Create such masterpieces just like that."</mark></p>
+									</div>
+								</div>
+
+										<div class="leftcolumn">
+											<div class="card">
+												<h2>Acrylic Painting</h2>
+												<br>
+												
+														<div class="fakeimg" style="height:620px;">
+														<br>
+														
+														  <img  src="IMG_20181101_175738.jpg" style="width:100%">
+														</div>
+														
+															<p><mark>"God has graciously given us all things. Yet when He handed us the Bible,
+															the one thing that He didn't give us was a pencil with an eraser on it.If we use the 'pen of fiction' to edit the 'narrative of fact' in order to justify our choices,
+															we will soon discover that the pen is in fact a pencil."</mark>	</p>
+											</div>
+										</div>
+
+  
+							<div class="rightcolumn">
+								
+								<div class="card">
+													<h3>Follow Me</h3>
+													<a href="https://m.facebook.com/dhanashree6/?ref=bookmarks" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> <br><br>
+													<a href="https://instagram.com/glister_of_art?igshid=1nc4rj5tfzzrc/"target="_blank" class="instagram"><i class="fa fa-instagram"></i></a><br> <br>
+													<a href="https://www.indiamart.com/glister-art-works/#aboutus/"target="_blank" class="shoping"><i class="fa fa-shopping-cart"></i></a> <br><br>
+													<a href="whatsapp://send?text=Welcome to the page" class="share"><i class="fa fa-share-alt"></i></a> <br>
+													<p><b><mark>Success</mark></b></p>
+	    
+								</div>
+							</div>
+</div>
+<br>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<hr>
+
+<h2><b>Art Gallery</b></h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('nature')"> Acters</button>
+  <button class="btn" onclick="filterSelection('cars')"> Nature</button>
+    <button class="btn" onclick="filterSelection('people')"> Custom Art</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="IMG_20190531_123101.jpg" alt="Mountains" style="width:100%">
+     
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="IMG_20190517_180346.jpg" alt="Lights" style="width:100%">
+      
+    </div>
+  </div>
+  
+  
+  <div class="column cars">
+    <div class="content">
+      <img src="IMG-20191017-WA0013.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  
+  <div class="column cars">
+    <div class="content">
+      <img src="IMG_20181101_175822_1.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  
+  <div class="column cars">
+    <div class="content">
+      <img src="IMG_20181101_175738.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+
+ <div class="column cars">
+    <div class="content">
+      <img src="IMG_20181101_175536.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+      <img src="IMG_20190331_141052_691.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190409_202827_901.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190414_142842_850.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+ 
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190423_162850.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190509_151025_648.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190713_091928.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190804_081755_448.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="New Doc 2019-08-06 23.46.15_1.jpg" alt="Car" style="width:100%">
+     
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190224_131642.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190118_040225.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20190103_061328.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+    <div class="column people">
+    <div class="content">
+    <img src="IMG_20190316_211000_313.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20181224_194305.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="IMG_20181202_100806.jpg" alt="Car" style="width:100%">
+      
+    </div>
+  </div>
+ 
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+<div class="footer"  style="height:100px;" >
+   <a href="https://m.facebook.com/dhanashree6/?ref=bookmarks" target="_blank" class="fa fa-facebook"  style="font-size: 30px;  padding: 20px;"></a> 
+  <a href="https://instagram.com/glister_of_art?igshid=1nc4rj5tfzzrc/"target="_blank" class="fa fa-instagram"  style="font-size: 30px;  padding: 20px;"></a> 
+   <a href="https://www.indiamart.com/glister-art-works/#aboutus/"target="_blank" class="fa fa-shopping-cart"  style="font-size: 30px;  padding: 20px;"></a> 
+   <a href="whatsapp://send?text=Welcome to the page" class="fa fa-share-alt"  style="font-size: 30px;  padding: 20px;"></a> 
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+var modal2=document.getElementById("ctnModal");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var ctn = document.getElementById("myctn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+ctn.onclick = function() {
+  modal2.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+	
+	
+  }
+   
+  else if (event.target == modal) {
+    modal2.style.display = "none";
+	
+	
+  }
+  
+}
+</script>
+
+<script>//slideshow1
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<script>//slideshow2
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides1");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 9000);    
+}
+</script>
+
+<script>//Portfolio
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+</html>
